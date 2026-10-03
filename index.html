@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drip Wire - Official India Store</title>
+    <style>
+        body {
+            background-color: #0d0d13;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            padding: 20px;
+            background: linear-gradient(180deg, #181824 0%, #0d0d13 100%);
+            border-bottom: 2px solid #e000ff;
+        }
+        h1 {
+            color: #e000ff;
+            margin: 0;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .container {
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+        }
+        .status-box {
+            background: #181824;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #2d2d3f;
+        }
+        .status-line {
+            display: flex;
+            justify-content: space-around;
+            font-size: 14px;
+        }
+        .status-item { display: flex; align-items: center; gap: 5px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+        .green { background: #00ff66; }
+        .yellow { background: #ffcc00; }
+        .red { background: #ff3333; }
+        
+        .product-card {
+            background: #181824;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid #2d2d3f;
+            box-shadow: 0 4px 15px rgba(224, 0, 255, 0.1);
+            text-align: left;
+        }
+        .product-title {
+            font-size: 20px;
+            color: #ffffff;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .product-status {
+            color: #00ff66;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+        .price-select {
+            width: 100%;
+            padding: 10px;
+            background: #0d0d13;
+            color: white;
+            border: 1px solid #e000ff;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .buy-btn {
+            background: #e000ff;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        
+        /* Popup for QR */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            justify-content: center; align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: #181824;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 90%;
+            width: 350px;
+            border: 2px solid #e000ff;
+        }
+        .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            background: white;
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-weight: bold;
+        }
+        .close-btn {
+            background: #ff3333;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px; right: 20px;
+            background: #25d366;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Drip Wire India</h1>
+    </header>
+
+    <div class="container">
+        <div class="status-box">
+            <div class="status-line">
+                <div class="status-item"><span class="dot green"></span> Online</div>
+                <div class="status-item"><span class="dot yellow"></span> Maintenance</div>
+                <div class="status-item"><span class="dot red"></span> Patch</div>
+            </div>
+        </div>
+
+        <!-- Product 1 -->
+        <div class="product-card">
+            <div class="product-title">DRIP WIRE MOD</div>
+            <div class="product-status">🟢 ONLINE - READY</div>
+            <select class="price-select" id="price1">
+                <option value="140">1 Hari (1 Day) — ₹140</option>
+                <option value="500">7 Hari (7 Days) — ₹500</option>
+                <option value="1500">30 Hari (30 Days) — ₹1,500</option>
+            </select>
+            <button class="buy-btn" onclick="openPayment('DRIP WIRE MOD', 'price1')">Beli Sekarang (Buy)</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <div class="product-title">XREG NO ROOT</div>
+            <div class="product-status">🟢 ONLINE - READY</div>
+            <select class="price-select" id="price2">
+                <option value="150">1 Hari (1 Day) — ₹150</option>
+                <option value="300">30 Hari (30 Days) — ₹300</option>
+                <option value="750">7 Hari (7 Days) — ₹750</option>
+            </select>
+            <button class="buy-btn" onclick="openPayment('XREG NO ROOT', 'price2')">Beli Sekarang (Buy)</button>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <h3 style="color: #e000ff; margin-top: 0;" id="modalTitle">Checkout</h3>
+            <p>Scan & Pay the exact amount via PhonePe/UPI:</p>
+            <h2 id="modalPrice" style="color: #00ff66; margin: 10px 0;">₹0</h2>
+            
+            <!-- QR CODE BOX -->
+            <div class="qr-placeholder">
+                [ PHONEPE QR ]<br>
+                Devraj Mehta
+            </div>
+            
+            <p style="font-size: 12px; color: #aaa;">👉 Payment karne ke baad screenshot niche diye gaye WhatsApp par send karein. Aapko License Key turant mil jayegi.</p>
+            
+            <a id="waLink" href="#" target="_blank" style="background: #25d366; color: white; padding: 10px; display: block; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 10px;">Send Screenshot on WhatsApp</a>
+            
+            <button class="close-btn" onclick="closePayment()">Close</button>
+        </div>
+    </div>
+
+    <!-- Floating WA -->
+    <a href="https://wa.me" class="whatsapp-float" target="_blank">💬</a>
+
+    <script>
+        function openPayment(name, selectId) {
+            var price = document.getElementById(selectId).value;
+            document.getElementById('modalTitle').innerText = name;
+            document.getElementById('modalPrice').innerText = '₹' + price;
+            
+            // Custom WhatsApp Message Setup
+            var message = encodeURIComponent("Hello! Maine '" + name + "' select kiya hai ₹" + price + " ka. Ye rha mera payment screenshot. Kripya mujhe License Key send karein.");
+            document.getElementById('waLink').href = "https://wa.me?text=" + message;
+            
+            document.getElementById('paymentModal').style.display = 'flex';
+        }
+        function closePayment() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

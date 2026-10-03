@@ -69,12 +69,13 @@
             font-weight: bold;
         }
         .status-online { color: #00ff66; }
-        .status-maintenace { color: #ffcc00; }
+        .status-maintenance { color: #ffcc00; }
         .status-patch { color: #ff3333; }
 
         .product-img {
             width: 100%;
-            height: auto;
+            height: 180px;
+            object-fit: cover;
             border-radius: 8px;
             margin-bottom: 15px;
             border: 1px solid #2d2d3f;
@@ -123,8 +124,8 @@
             text-align: center;
         }
         .qr-img {
-            width: 220px;
-            height: 220px;
+            width: 200px;
+            height: 200px;
             margin: 15px auto;
             border-radius: 8px;
             border: 2px solid white;
@@ -172,9 +173,9 @@
 
         <!-- 1. DRIP WIRE -->
         <div class="product-card">
-            <div class="product-title">DRIP WIRE</div>
+            <div class="product-title">DRIP WIRE CLIENT</div>
             <div class="product-status status-online">🟢 ONLINE - WORKING</div>
-            <img src="dripwire.png" alt="Drip Wire Image" class="product-img" onerror="this.style.display='none'">
+            <img src="https://unsplash.com" alt="Drip Wire" class="product-img">
             <select class="price-select" id="price_dripwire">
                 <option value="60">6 Hours — ₹60</option>
                 <option value="100">12 Hours — ₹100</option>
@@ -182,27 +183,27 @@
                 <option value="500">7 Days — ₹500</option>
                 <option value="1500">30 Days — ₹1,500</option>
             </select>
-            <button class="buy-btn" onclick="openPayment('DRIP WIRE', 'price_dripwire')">BUY NOW</button>
+            <button class="buy-btn" onclick="openPayment('DRIP WIRE CLIENT', 'price_dripwire')">BUY NOW</button>
         </div>
 
         <!-- 2. XREG NO ROOT -->
         <div class="product-card">
-            <div class="product-title">XREG (iOS & Android)</div>
+            <div class="product-title">XREG VIP PANEL (iOS & Android)</div>
             <div class="product-status status-online">🟢 ONLINE - WORKING</div>
-            <img src="xreg.png" alt="XREG Image" class="product-img" onerror="this.style.display='none'">
+            <img src="https://unsplash.com" alt="XREG" class="product-img">
             <select class="price-select" id="price_xreg">
                 <option value="150">1 Day — ₹150</option>
                 <option value="300">3 Days — ₹300</option>
                 <option value="750">7 Days — ₹750</option>
             </select>
-            <button class="buy-btn" onclick="openPayment('XREG NO ROOT', 'price_xreg')">BUY NOW</button>
+            <button class="buy-btn" onclick="openPayment('XREG VIP PANEL', 'price_xreg')">BUY NOW</button>
         </div>
 
         <!-- 3. PRIME MOD -->
         <div class="product-card">
             <div class="product-title">PRIME MOD (Android No Root)</div>
             <div class="product-status status-online">🟢 ONLINE - WORKING</div>
-            <img src="primemod.png" alt="Prime Mod Image" class="product-img" onerror="this.style.display='none'">
+            <img src="https://unsplash.com" alt="Prime Mod" class="product-img">
             <select class="price-select" id="price_prime">
                 <option value="150">1 Day — ₹150</option>
                 <option value="400">3 Days — ₹400</option>
@@ -213,9 +214,9 @@
 
         <!-- 4. BR MOD PC -->
         <div class="product-card">
-            <div class="product-title">BR MOD PC (PC Version)</div>
+            <div class="product-title">BR MOD PC (Emulator Version)</div>
             <div class="product-status status-online">🟢 ONLINE - WORKING</div>
-            <img src="brmod.png" alt="BR Mod PC Image" class="product-img" onerror="this.style.display='none'">
+            <img src="https://unsplash.com" alt="BR Mod PC" class="product-img">
             <select class="price-select" id="price_brmod">
                 <option value="120">1 Day — ₹120</option>
                 <option value="750">10 Days — ₹750</option>
@@ -226,22 +227,22 @@
 
         <!-- 5. PATO TEAM -->
         <div class="product-card">
-            <div class="product-title">PATO TEAM PANEL</div>
+            <div class="product-title">PATO TEAM REGEDIT</div>
             <div class="product-status status-online">🟢 ONLINE - WORKING</div>
-            <img src="patoteam.png" alt="Pato Team Image" class="product-img" onerror="this.style.display='none'">
+            <img src="https://unsplash.com" alt="Pato Team" class="product-img">
             <select class="price-select" id="price_pato">
                 <option value="260">3 Days (Orange) — ₹260</option>
                 <option value="270">3 Days (Regedit) — ₹270</option>
                 <option value="500">7 Days (Blue) — ₹500</option>
             </select>
-            <button class="buy-btn" onclick="openPayment('PATO TEAM PANEL', 'price_pato')">BUY NOW</button>
+            <button class="buy-btn" onclick="openPayment('PATO TEAM REGEDIT', 'price_pato')">BUY NOW</button>
         </div>
 
         <!-- 6. SILENT CHEAT PROXY -->
         <div class="product-card">
             <div class="product-title">SILENT CHEAT PROXY</div>
             <div class="product-status status-online">🟢 ONLINE - WORKING</div>
-            <img src="silentcheat.png" alt="Silent Cheat Image" class="product-img" onerror="this.style.display='none'">
+            <img src="https://unsplash.com" alt="Silent Cheat" class="product-img">
             <select class="price-select" id="price_silent">
                 <option value="270">3 Days — ₹270</option>
                 <option value="650">7 Days — ₹650</option>
@@ -251,12 +252,6 @@
 
         <!-- 7. HG CHEAT SAFE VERSION -->
         <div class="product-card">
-            <div class="product-title">HG CHEAT (Anti-Ban)</div>
+            <div class="product-title">HG CHEAT (Anti-Ban Tool)</div>
             <div class="product-status status-online">🟢 ONLINE - WORKING</div>
-            <img src="hgcheat.png" alt="HG Cheat Image" class="product-img" onerror="this.style.display='none'">
-            <select class="price-select" id="price_hg">
-                <option value="120">1 Day (Red) — ₹120</option>
-                <option value="120">1 Day (Blue) — ₹120</option>
-                <option value="600">10 Days (Blue) — ₹600</option>
-            </select>
             

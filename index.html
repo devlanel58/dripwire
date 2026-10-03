@@ -31,7 +31,7 @@
             margin: auto;
         }
         .contact-admin-btn {
-            background: linear-gradient(45deg, #25d366, #075e54);
+            background: linear-gradient(45deg, #e1306c, #c13584);
             color: white;
             border: none;
             width: 100%;
@@ -43,7 +43,7 @@
             letter-spacing: 1px;
             font-size: 15px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 4px 15px rgba(225, 48, 108, 0.3);
             display: block;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -97,7 +97,6 @@
             border-radius: 6px;
             margin-bottom: 15px;
             font-size: 14px;
-            cursor: pointer;
         }
         .buy-btn {
             background: linear-gradient(45deg, #e000ff, #8000ff);
@@ -114,7 +113,47 @@
             display: block;
             text-align: center;
             box-sizing: border-box;
+        }
+        
+        /* Modal Popup Design */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            justify-content: center; align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: #181824;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 90%;
+            width: 330px;
+            border: 2px solid #e000ff;
+            text-align: center;
+        }
+        .pay-now-link {
+            background: linear-gradient(45deg, #00ff66, #009933);
+            color: white;
+            padding: 14px;
+            display: block;
+            border-radius: 6px;
             text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+        .close-btn {
+            background: #ff3333;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -125,8 +164,8 @@
     </header>
 
     <div class="container">
-        <!-- Direct Universal Link Format for WhatsApp Chat Window Launch -->
-        <a href="https://wa.me" class="contact-admin-btn" target="_blank">💬 Contact Admin (WhatsApp)</a>
+        <!-- Exact Instagram link added here -->
+        <a href="https://instagram.com" class="contact-admin-btn" target="_blank">📸 Contact Admin (Instagram)</a>
 
         <div class="status-box">
             <div class="status-line">
@@ -145,7 +184,7 @@
                 <option value="220">3 Days — ₹220</option>
                 <option value="380">7 Days — ₹380</option>
             </select>
-            <button class="buy-btn" onclick="payNow('DRIP WIRE CLIENT', 'price_dripwire')">BUY NOW</button>
+            <button class="buy-btn" onclick="openPaymentBox('DRIP WIRE CLIENT', 'price_dripwire')">BUY NOW</button>
         </div>
 
         <!-- 2. XREG VIP PANEL -->
@@ -157,7 +196,7 @@
                 <option value="180">3 Days — ₹180</option>
                 <option value="320">7 Days — ₹320</option>
             </select>
-            <button class="buy-btn" onclick="payNow('XREG VIP PANEL', 'price_xreg')">BUY NOW</button>
+            <button class="buy-btn" onclick="openPaymentBox('XREG VIP PANEL', 'price_xreg')">BUY NOW</button>
         </div>
 
         <!-- 3. PRIME MOD -->
@@ -169,7 +208,7 @@
                 <option value="200">3 Days — ₹200</option>
                 <option value="350">7 Days — ₹350</option>
             </select>
-            <button class="buy-btn" onclick="payNow('PRIME MOD', 'price_prime')">BUY NOW</button>
+            <button class="buy-btn" onclick="openPaymentBox('PRIME MOD', 'price_prime')">BUY NOW</button>
         </div>
 
         <!-- 4. BR MOD PC -->
@@ -181,7 +220,7 @@
                 <option value="220">3 Days — ₹220</option>
                 <option value="390">7 Days — ₹390</option>
             </select>
-            <button class="buy-btn" onclick="payNow('BR MOD PC', 'price_brmod')">BUY NOW</button>
+            <button class="buy-btn" onclick="openPaymentBox('BR MOD PC', 'price_brmod')">BUY NOW</button>
         </div>
 
         <!-- 5. PATO TEAM REGEDIT -->
@@ -193,7 +232,7 @@
                 <option value="170">3 Days — ₹170</option>
                 <option value="300">7 Days — ₹300</option>
             </select>
-            <button class="buy-btn" onclick="payNow('PATO TEAM REGEDIT', 'price_pato')">BUY NOW</button>
+            <button class="buy-btn" onclick="openPaymentBox('PATO TEAM REGEDIT', 'price_pato')">BUY NOW</button>
         </div>
 
         <!-- 6. SILENT CHEAT PROXY -->
@@ -205,7 +244,7 @@
                 <option value="210">3 Days — ₹210</option>
                 <option value="360">7 Days — ₹360</option>
             </select>
-            <button class="buy-btn" onclick="payNow('SILENT CHEAT PROXY', 'price_silent')">BUY NOW</button>
+            <button class="buy-btn" onclick="openPaymentBox('SILENT CHEAT PROXY', 'price_silent')">BUY NOW</button>
         </div>
 
         <!-- 7. ABCD GFX PANEL -->
@@ -217,7 +256,7 @@
                 <option value="150">3 Days — ₹150</option>
                 <option value="280">7 Days — ₹280</option>
             </select>
-            <button class="buy-btn" onclick="payNow('ABCD GFX PANEL', 'price_abcd')">BUY NOW</button>
+            <button class="buy-btn" onclick="openPaymentBox('ABCD GFX PANEL', 'price_abcd')">BUY NOW</button>
         </div>
 
         <!-- 8. DRIP ROOT HACK -->
@@ -227,29 +266,4 @@
             <select class="price-select" id="price_droot">
                 <option value="120">1 Day — ₹120</option>
                 <option value="220">3 Days — ₹220</option>
-                <option value="390">7 Days — ₹390</option>
-            </select>
-            <button class="buy-btn" onclick="payNow('DRIP ROOT HACK', 'price_droot')">BUY NOW</button>
-        </div>
-
-        <!-- 9. ANGRY MOD ANTI-BAN -->
-        <div class="product-card">
-            <div class="product-title">ANGRY MOD ANTI-BAN</div>
-            <div class="product-status status-online">🟢 ONLINE - WORKING</div>
-            <select class="price-select" id="price_angry">
-                <option value="90">1 Day — ₹90</option>
-                <option value="160">3 Days — ₹160</option>
-                <option value="290">7 Days — ₹290</option>
-            </select>
-            <button class="buy-btn" onclick="payNow('ANGRY MOD', 'price_angry')">BUY NOW</button>
-        </div>
-
-        <!-- 10. BALA X MOD -->
-        <div class="product-card">
-            <div class="product-title">BALA X MOD</div>
-            <div class="product-status status-online">🟢 ONLINE - WORKING</div>
-            <select class="price-select" id="price_balax">
-                <option value="110">1 Day — ₹110</option>
-                <option value="190">3 Days — ₹190</option>
-                <option value="340">7 Days — ₹340</option>
                 

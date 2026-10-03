@@ -30,11 +30,33 @@
             max-width: 500px;
             margin: auto;
         }
+        .contact-admin-btn {
+            background: linear-gradient(45deg, #25d366, #075e54);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .contact-admin-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
         .status-box {
             background: #181824;
             padding: 10px;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             border: 1px solid #2d2d3f;
         }
         .status-line {
@@ -65,7 +87,7 @@
         }
         .product-status {
             font-size: 12px;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-weight: bold;
         }
         .status-online { color: #00ff66; }
@@ -97,11 +119,11 @@
             box-shadow: 0 0 10px rgba(224, 0, 255, 0.4);
             display: block;
             text-align: center;
+            box-sizing: border-box;
         }
         .buy-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 0 20px rgba(224, 0, 255, 0.8);
-            background: linear-gradient(45deg, #8000ff, #e000ff);
         }
         
         /* Popup for QR */
@@ -162,6 +184,9 @@
     </header>
 
     <div class="container">
+        <!-- New Dedicated Contact Admin Button -->
+        <a href="https://whatsapp.com." class="contact-admin-btn" target="_blank">💬 Contact Admin (WhatsApp)</a>
+
         <div class="status-box">
             <div class="status-line">
                 <div class="status-item"><span class="dot green"></span> Online</div>
@@ -247,26 +272,4 @@
             <div class="product-title">HG CHEAT (Anti-Ban)</div>
             <div class="product-status status-online">🟢 ONLINE - WORKING</div>
             <select class="price-select" id="price_hg">
-                <option value="100">1 Day — ₹100</option>
-                <option value="180">3 Days — ₹180</option>
-                <option value="320">7 Days — ₹320</option>
-            </select>
-            <button class="buy-btn" onclick="openPayment('HG CHEAT SAFE', 'price_hg')">BUY NOW</button>
-        </div>
-
-        <!-- 8. ABCD GFX PANEL -->
-        <div class="product-card">
-            <div class="product-title">ABCD GFX PANEL</div>
-            <div class="product-status status-online">🟢 ONLINE - WORKING</div>
-            <select class="price-select" id="price_abcd">
-                <option value="80">1 Day — ₹80</option>
-                <option value="150">3 Days — ₹150</option>
-                <option value="280">7 Days — ₹280</option>
-            </select>
-            <button class="buy-btn" onclick="openPayment('ABCD GFX PANEL', 'price_abcd')">BUY NOW</button>
-        </div>
-
-        <!-- 9. DRIP ROOT HACK -->
-        <div class="product-card">
-            <div class="product-title">DRIP ROOT HACK</div>
-            
+                

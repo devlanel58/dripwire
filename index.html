@@ -114,43 +114,7 @@
             display: block;
             text-align: center;
             box-sizing: border-box;
-        }
-        
-        /* Popup for QR */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85);
-            justify-content: center; align-items: center;
-            z-index: 1000;
-        }
-        .modal-content {
-            background: #181824;
-            padding: 25px;
-            border-radius: 12px;
-            max-width: 90%;
-            width: 350px;
-            border: 2px solid #e000ff;
-            text-align: center;
-        }
-        .qr-img {
-            width: 200px;
-            height: 200px;
-            margin: 15px auto;
-            border-radius: 8px;
-            border: 2px solid white;
-            display: block;
-        }
-        .close-btn {
-            background: #ff3333;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin-top: 15px;
-            cursor: pointer;
-            font-weight: bold;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -161,7 +125,7 @@
     </header>
 
     <div class="container">
-        <!-- 100% Fixed WhatsApp Link for Normal WhatsApp -->
+        <!-- Direct Universal Link Format for WhatsApp Chat Window Launch -->
         <a href="https://wa.me" class="contact-admin-btn" target="_blank">💬 Contact Admin (WhatsApp)</a>
 
         <div class="status-box">
@@ -181,7 +145,7 @@
                 <option value="220">3 Days — ₹220</option>
                 <option value="380">7 Days — ₹380</option>
             </select>
-            <button class="buy-btn" onclick="openPayment('DRIP WIRE CLIENT', 'price_dripwire')">BUY NOW</button>
+            <button class="buy-btn" onclick="payNow('DRIP WIRE CLIENT', 'price_dripwire')">BUY NOW</button>
         </div>
 
         <!-- 2. XREG VIP PANEL -->
@@ -193,7 +157,7 @@
                 <option value="180">3 Days — ₹180</option>
                 <option value="320">7 Days — ₹320</option>
             </select>
-            <button class="buy-btn" onclick="openPayment('XREG VIP PANEL', 'price_xreg')">BUY NOW</button>
+            <button class="buy-btn" onclick="payNow('XREG VIP PANEL', 'price_xreg')">BUY NOW</button>
         </div>
 
         <!-- 3. PRIME MOD -->
@@ -205,7 +169,7 @@
                 <option value="200">3 Days — ₹200</option>
                 <option value="350">7 Days — ₹350</option>
             </select>
-            <button class="buy-btn" onclick="openPayment('PRIME MOD', 'price_prime')">BUY NOW</button>
+            <button class="buy-btn" onclick="payNow('PRIME MOD', 'price_prime')">BUY NOW</button>
         </div>
 
         <!-- 4. BR MOD PC -->
@@ -217,7 +181,7 @@
                 <option value="220">3 Days — ₹220</option>
                 <option value="390">7 Days — ₹390</option>
             </select>
-            <button class="buy-btn" onclick="openPayment('BR MOD PC', 'price_brmod')">BUY NOW</button>
+            <button class="buy-btn" onclick="payNow('BR MOD PC', 'price_brmod')">BUY NOW</button>
         </div>
 
         <!-- 5. PATO TEAM REGEDIT -->
@@ -229,7 +193,7 @@
                 <option value="170">3 Days — ₹170</option>
                 <option value="300">7 Days — ₹300</option>
             </select>
-            <button class="buy-btn" onclick="openPayment('PATO TEAM REGEDIT', 'price_pato')">BUY NOW</button>
+            <button class="buy-btn" onclick="payNow('PATO TEAM REGEDIT', 'price_pato')">BUY NOW</button>
         </div>
 
         <!-- 6. SILENT CHEAT PROXY -->
@@ -241,22 +205,10 @@
                 <option value="210">3 Days — ₹210</option>
                 <option value="360">7 Days — ₹360</option>
             </select>
-            <button class="buy-btn" onclick="openPayment('SILENT CHEAT PROXY', 'price_silent')">BUY NOW</button>
+            <button class="buy-btn" onclick="payNow('SILENT CHEAT PROXY', 'price_silent')">BUY NOW</button>
         </div>
 
-        <!-- 7. HG CHEAT SAFE VERSION -->
-        <div class="product-card">
-            <div class="product-title">HG CHEAT (Anti-Ban)</div>
-            <div class="product-status status-online">🟢 ONLINE - WORKING</div>
-            <select class="price-select" id="price_hg">
-                <option value="100">1 Day — ₹100</option>
-                <option value="180">3 Days — ₹180</option>
-                <option value="320">7 Days — ₹320</option>
-            </select>
-            <button class="buy-btn" onclick="openPayment('HG CHEAT SAFE', 'price_hg')">BUY NOW</button>
-        </div>
-
-        <!-- 8. ABCD GFX PANEL -->
+        <!-- 7. ABCD GFX PANEL -->
         <div class="product-card">
             <div class="product-title">ABCD GFX PANEL</div>
             <div class="product-status status-online">🟢 ONLINE - WORKING</div>
@@ -265,7 +217,39 @@
                 <option value="150">3 Days — ₹150</option>
                 <option value="280">7 Days — ₹280</option>
             </select>
-            <button class="buy-btn" onclick="openPayment('ABCD GFX PANEL', 'price_abcd')">BUY NOW</button>
+            <button class="buy-btn" onclick="payNow('ABCD GFX PANEL', 'price_abcd')">BUY NOW</button>
         </div>
 
-        
+        <!-- 8. DRIP ROOT HACK -->
+        <div class="product-card">
+            <div class="product-title">DRIP ROOT HACK</div>
+            <div class="product-status status-online">🟢 ONLINE - WORKING</div>
+            <select class="price-select" id="price_droot">
+                <option value="120">1 Day — ₹120</option>
+                <option value="220">3 Days — ₹220</option>
+                <option value="390">7 Days — ₹390</option>
+            </select>
+            <button class="buy-btn" onclick="payNow('DRIP ROOT HACK', 'price_droot')">BUY NOW</button>
+        </div>
+
+        <!-- 9. ANGRY MOD ANTI-BAN -->
+        <div class="product-card">
+            <div class="product-title">ANGRY MOD ANTI-BAN</div>
+            <div class="product-status status-online">🟢 ONLINE - WORKING</div>
+            <select class="price-select" id="price_angry">
+                <option value="90">1 Day — ₹90</option>
+                <option value="160">3 Days — ₹160</option>
+                <option value="290">7 Days — ₹290</option>
+            </select>
+            <button class="buy-btn" onclick="payNow('ANGRY MOD', 'price_angry')">BUY NOW</button>
+        </div>
+
+        <!-- 10. BALA X MOD -->
+        <div class="product-card">
+            <div class="product-title">BALA X MOD</div>
+            <div class="product-status status-online">🟢 ONLINE - WORKING</div>
+            <select class="price-select" id="price_balax">
+                <option value="110">1 Day — ₹110</option>
+                <option value="190">3 Days — ₹190</option>
+                <option value="340">7 Days — ₹340</option>
+                

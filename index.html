@@ -48,6 +48,279 @@
             text-decoration: none;
             transition: all 0.3s ease;
         }
+        .status-box {
+            background: #181824;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border: 1px solid #2d2d3f;
+        }
+        .status-line {
+            display: flex;
+            justify-content: space-around;
+            font-size: 14px;
+        }
+        .status-item { display: flex; align-items: center; gap: 5px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+        .green { background: #00ff66; }
+        .yellow { background: #ffcc00; }
+        .red { background: #ff3333; }
+        
+        .product-card {
+            background: #181824;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid #2d2d3f;
+            box-shadow: 0 4px 15px rgba(224, 0, 255, 0.1);
+            text-align: left;
+        }
+        .product-title {
+            font-size: 20px;
+            color: #ffffff;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .product-status {
+            font-size: 12px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .status-online { color: #00ff66; }
+
+        .price-select {
+            width: 100%;
+            padding: 12px;
+            background: #0d0d13;
+            color: white;
+            border: 1px solid #e000ff;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .buy-btn {
+            background: linear-gradient(45deg, #e000ff, #8000ff);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(224, 0, 255, 0.4);
+            display: block;
+            text-align: center;
+        }
+        
+        /* Popup for QR */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            justify-content: center; align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: #181824;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 90%;
+            width: 350px;
+            border: 2px solid #e000ff;
+            text-align: center;
+        }
+        .qr-img {
+            width: 200px;
+            height: 200px;
+            margin: 15px auto;
+            border-radius: 8px;
+            border: 2px solid white;
+            display: block;
+        }
+        .close-btn {
+            background: #ff3333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px; right: 20px;
+            background: #25d366;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Drip Wire India</h1>
+    </header>
+
+    <div class="container">
+        <!-- Secure Global Web Link Format for WhatsApp -->
+        <a href="https://wa.me" class="contact-admin-btn" target="_blank">💬 Contact Admin (WhatsApp)</a>
+
+        <div class="status-box">
+            <div class="status-line">
+                <div class="status-item"><span class="dot green"></span> Online</div>
+                <div class="status-item"><span class="dot yellow"></span> Maintenance</div>
+                <div class="status-item"><span class="dot red"></span> Patch</div>
+            </div>
+        </div>
+
+        <!-- 1. DRIP WIRE CLIENT -->
+        <div class="product-card">
+            <div class="product-title">DRIP WIRE CLIENT</div>
+            <div class="product-status status-online">🟢 ONLINE - WORKING</div>
+            <select class="price-select" id="price_dripwire">
+                <option value="120">1 Day — ₹120</option>
+                <option value="220">3 Days — ₹220</option>
+                <option value="380">7 Days — ₹380</option>
+            </select>
+            <button class="buy-btn" onclick="openPayment('DRIP WIRE CLIENT', 'price_dripwire')">BUY NOW</button>
+        </div>
+
+        <!-- 2. XREG VIP PANEL -->
+        <div class="product-card">
+            <div class="product-title">XREG VIP PANEL</div>
+            <div class="product-status status-online">🟢 ONLINE - WORKING</div>
+            <select class="price-select" id="price_xreg">
+                <option value="100">1 Day — ₹100</option>
+                <option value="180">3 Days — ₹180</option>
+                <option value="320">7 Days — ₹320</option>
+            </select>
+            <button class="buy-btn" onclick="openPayment('XREG VIP PANEL', 'price_xreg')">BUY NOW</button>
+        </div>
+
+        <!-- 3. PRIME MOD -->
+        <div class="product-card">
+            <div class="product-title">PRIME MOD (No Root)</div>
+            <div class="product-status status-online">🟢 ONLINE - WORKING</div>
+            <select class="price-select" id="price_prime">
+                <option value="110">1 Day — ₹110</option>
+                <option value="200">3 Days — ₹200</option>
+                <option value="350">7 Days — ₹350</option>
+            </select>
+            <button class="buy-btn" onclick="openPayment('PRIME MOD', 'price_prime')">BUY NOW</button>
+        </div>
+
+        <!-- 4. BR MOD PC -->
+        <div class="product-card">
+            <div class="product-title">BR MOD PC (Emulator)</div>
+            <div class="product-status status-online">🟢 ONLINE - WORKING</div>
+            <select class="price-select" id="price_brmod">
+                <option value="120">1 Day — ₹120</option>
+                <option value="220">3 Days — ₹220</option>
+                <option value="390">7 Days — ₹390</option>
+            </select>
+            <button class="buy-btn" onclick="openPayment('BR MOD PC', 'price_brmod')">BUY NOW</button>
+        </div>
+
+        <!-- 5. PATO TEAM REGEDIT -->
+        <div class="product-card">
+            <div class="product-title">PATO TEAM REGEDIT</div>
+            <div class="product-status status-online">🟢 ONLINE - WORKING</div>
+            <select class="price-select" id="price_pato">
+                <option value="90">1 Day — ₹90</option>
+                <option value="170">3 Days — ₹170</option>
+                <option value="300">7 Days — ₹300</option>
+            </select>
+            <button class="buy-btn" onclick="openPayment('PATO TEAM REGEDIT', 'price_pato')">BUY NOW</button>
+        </div>
+
+        <!-- 6. SILENT CHEAT PROXY -->
+        <div class="product-card">
+            <div class="product-title">SILENT CHEAT PROXY</div>
+            <div class="product-status status-online">🟢 ONLINE - WORKING</div>
+            <select class="price-select" id="price_silent">
+                <option value="120">1 Day — ₹120</option>
+                <option value="210">3 Days — ₹210</option>
+                <option value="360">7 Days — ₹360</option>
+            </select>
+            <button class="buy-btn" onclick="openPayment('SILENT CHEAT PROXY', 'price_silent')">BUY NOW</button>
+        </div>
+
+        <!-- 7. HG CHEAT SAFE VERSION -->
+        <div class="product-card">
+            <div class="product-title">HG CHEAT (Anti-Ban)</div>
+            <div class="product-status status-online">🟢 ONLINE - WORKING</div>
+            <select class="price-select" id="price_hg">
+                <option value="100">1 Day — ₹100</option>
+                <option value="180">3 Days — ₹180</option>
+                <option value="320">7 Days — ₹320</option>
+            </select>
+            <button class="buy-btn" onclick="openPayment('HG CHEAT SAFE', 'price_hg')">BUY NOW</button>
+        </div>
+
+        <!-- 8. ABCD GFX PANEL -->
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drip Wire - Official India Store</title>
+    <style>
+        body {
+            background-color: #0d0d13;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            padding: 20px;
+            background: linear-gradient(180deg, #181824 0%, #0d0d13 100%);
+            border-bottom: 2px solid #e000ff;
+        }
+        h1 {
+            color: #e000ff;
+            margin: 0;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .container {
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+        }
+        .contact-admin-btn {
+            background: linear-gradient(45deg, #25d366, #075e54);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
         .contact-admin-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);

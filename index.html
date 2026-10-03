@@ -12,11 +12,30 @@
             margin: 0;
             padding: 0;
             text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Snow Animation Effect Styles */
+        .snow-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1; pointer-events: none;
+        }
+        .snowflake {
+            position: fixed; top: -10px;
+            color: rgba(224, 0, 255, 0.4);
+            font-size: 1.2em; pointer-events: none;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(105vh) rotate(360deg); opacity: 0.2; }
         }
         header {
             padding: 20px;
             background: linear-gradient(180deg, #181824 0%, #0d0d13 100%);
             border-bottom: 2px solid #e000ff;
+            position: relative; z-index: 2;
         }
         h1 {
             color: #e000ff;
@@ -29,6 +48,7 @@
             padding: 20px;
             max-width: 500px;
             margin: auto;
+            position: relative; z-index: 2;
         }
         .contact-admin-btn {
             background: linear-gradient(45deg, #e1306c, #c13584);
@@ -160,12 +180,13 @@
 </head>
 <body>
 
+    <div class="snow-container" id="snowContainer"></div>
+
     <header>
         <h1>Drip Wire India</h1>
     </header>
 
     <div class="container">
-        <!-- Live Instagram Link -->
         <a href="https://instagram.com" class="contact-admin-btn" target="_blank">📸 Contact Admin (Instagram)</a>
 
         <div class="status-box">
@@ -251,19 +272,3 @@
         <!-- 7. ABCD GFX PANEL -->
         <div class="product-card">
             <div class="product-title">ABCD GFX PANEL</div>
-            <div class="product-status status-online">🟢 ONLINE - WORKING</div>
-            <select class="price-select" id="price_abcd">
-                <option value="80">1 Day — ₹80</option>
-                <option value="150">3 Days — ₹150</option>
-                <option value="280">7 Days — ₹280</option>
-            </select>
-            <button class="buy-btn" onclick="openPaymentBox('ABCD GFX PANEL', 'price_abcd')">BUY NOW</button>
-        </div>
-
-        <!-- 8. DRIP ROOT HACK -->
-        <div class="product-card">
-            <div class="product-title">DRIP ROOT HACK</div>
-            <div class="product-status status-online">🟢 ONLINE - WORKING</div>
-            <select class="price-select" id="price_droot">
-                <option value="120">1 Day — ₹120</option>
-                
